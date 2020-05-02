@@ -1,0 +1,33 @@
+{
+  "name": "@warriors/web-app",
+  "private": true,
+  "version": "1.0.0",
+  "description": "PWA for Jini Hackathon",
+  "main": "n/a",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Warriers/web-app.git"
+  },
+  "keywords": [
+    "jini",
+    "hackathon"
+  ],
+  "author": "Sourabh Subhod <sourabhsubhod@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Warriers/web-app/issues"
+  },
+  "homepage": "https://github.com/Warriers/web-app#readme",
+  "dependencies": {
+    "@material-ui/core": "^4.9.12",
+    "gatsby": "^2.21.9",
+    "gatsby-plugin-react-helmet": "^3.3.0",
+    "gatsby-theme-material-ui": "^1.0.9",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-helmet": "^6.0.0"
+  }
+}
