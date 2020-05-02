@@ -2,9 +2,10 @@
   "name": "@warriors/web-app",
   "private": true,
   "version": "1.0.0",
-  "description": "PWA for Jini Hackathon",
+  "description": "Web app for Jini Hackathon",
   "main": "n/a",
   "scripts": {
+    "start": "gatsby develop",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -23,11 +24,26 @@
   "homepage": "https://github.com/Warriers/web-app#readme",
   "dependencies": {
     "@material-ui/core": "^4.9.12",
+    "@material-ui/icons": "^4.9.1",
+    "@typescript-eslint/eslint-plugin": "^2.30.0",
+    "@typescript-eslint/parser": "^2.30.0",
+    "final-form": "^4.19.1",
     "gatsby": "^2.21.9",
+    "gatsby-plugin-manifest": "^2.4.1",
     "gatsby-plugin-react-helmet": "^3.3.0",
+    "gatsby-plugin-typescript": "^2.4.0",
     "gatsby-theme-material-ui": "^1.0.9",
+    "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-helmet": "^6.0.0"
+    "react-final-form": "^6.4.0",
+    "react-helmet": "^6.0.0",
+    "typescript": "^3.8.3",
+    "validator": "^13.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^13.13.4",
+    "@types/react": "^16.9.34",
+    "@types/react-dom": "^16.9.7"
   }
 }
