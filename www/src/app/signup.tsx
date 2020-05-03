@@ -37,7 +37,7 @@ interface FormData extends FD {
   lastName: string
 }
 
-const Signup = ({}: MaybePathProps) => {
+const Signup = ({layout: Layout}: MaybePathProps) => {
   const classes = useStyles()
   const { signupUser, user, settings } = useIdentityContext()
   settings.autoconfirm = true
@@ -84,7 +84,7 @@ const Signup = ({}: MaybePathProps) => {
   }
 
   return (
-    <>
+    <Layout>
       <SEO title={"Sign Up"} />
       <AppForm>
         <React.Fragment>
@@ -176,7 +176,7 @@ const Signup = ({}: MaybePathProps) => {
           )}
         </Form>
       </AppForm>
-    </>
+    </Layout>
   )
 }
 

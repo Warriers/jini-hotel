@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
 }))
 
-const Login = ({}: MaybePathProps) => {
+const Login = ({layout: Layout}: MaybePathProps) => {
   const classes = useStyles()
   const { loginUser } = useIdentityContext()
   const [isLoading, load] = useLoading()
@@ -72,7 +72,7 @@ const Login = ({}: MaybePathProps) => {
   }
 
   return (
-    <>
+    <Layout>
       <SEO title="Sign In" />
       <AppForm>
         <React.Fragment>
@@ -152,7 +152,7 @@ const Login = ({}: MaybePathProps) => {
           </Link>
         </Typography>
       </AppForm>
-    </>
+    </Layout>
   )
 }
 

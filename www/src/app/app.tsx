@@ -1,9 +1,10 @@
 import React from "react"
 import { Router, Redirect } from "@reach/router"
-import { MainLayout as Layout, DashboardLayout as Dashboard } from "components"
+import { MainLayout } from "components"
 import Login from "./login"
 import Signup from "./signup"
-import Main from "./main"
+import Dashboard from "./dashboard"
+import Checkout from "./checkout"
 import PrivateRoute from "./components/PrivateRoute"
 import { useIdentityContext } from "react-netlify-identity"
 import { navigate } from "gatsby"
@@ -13,7 +14,7 @@ import { Routes } from "utils"
 import { RedirectProps } from "./types"
 
 const PublicRoute = (props) => {
-  return <Layout>{props.children}</Layout>
+  return props.children
 }
 
 const App = () => {
@@ -26,12 +27,26 @@ const App = () => {
         to={`/app/${isLoggedIn ? Routes.dashboard : Routes.login}/`}
         noThrow
       />
-      <PrivateRoute path={`/app/${Routes.dashboard}/`} component={Dashboard} />
+      {isLoggedIn && (
+        <Redirect
+          from={`/app/${Routes.login}/`}
+          to={`/app/${Routes.dashboard}/`}
+          noThrow
+        />
+      )}
+      {isLoggedIn && (
+        <Redirect
+          from={`/app/${Routes.signup}/`}
+          to={`/app/${Routes.dashboard}/`}
+          noThrow
+        />
+      )}
+
       <PublicRoute path="/app/">
-        {/* <PrivateRoute path="/" component={Login} /> */}
-        {/* <Redirect from="/" to="/app/dashboard" /> */}
-        <Login path={Routes.login} />
-        <Signup path={Routes.signup} />
+        <PrivateRoute path={`${Routes.dashboard}/`} component={Dashboard} />
+        <PrivateRoute path={`${Routes.checkout}/`} component={Checkout} />
+        <Login path={Routes.login} layout={MainLayout} />
+        <Signup path={Routes.signup} layout={MainLayout} />
         <Redirect from="/app/*" to="/404/" default noThrow />
       </PublicRoute>
     </Router>

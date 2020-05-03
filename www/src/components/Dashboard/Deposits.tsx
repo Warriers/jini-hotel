@@ -18,7 +18,7 @@ const Deposits = () => {
   const classes = useStyles()
   return (
     <>
-      <Title>Recent Deposits</Title>
+      <Title>Wallet</Title>
       <Typography component="p" variant="h4">
         $3,024.00
       </Typography>
@@ -27,7 +27,7 @@ const Deposits = () => {
       </Typography>
       <div>
         <Link color="primary" href="#" onClick={preventDefault}>
-          View balance
+          View history
         </Link>
       </div>
     </>

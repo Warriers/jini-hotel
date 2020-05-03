@@ -1,8 +1,11 @@
+import { ComponentType } from "react"
+
 export interface MaybePathProps {
   path?: string
+  layout: ComponentType
 }
 
-export interface RedirectProps extends MaybePathProps{
+export interface RedirectProps extends MaybePathProps {
   from?: string
   to: string
   default?: boolean

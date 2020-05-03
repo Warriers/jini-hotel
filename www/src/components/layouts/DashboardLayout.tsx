@@ -3,7 +3,6 @@ import clsx from "clsx"
 import { makeStyles } from "@material-ui/core/styles"
 import CssBaseline from "@material-ui/core/CssBaseline"
 import Drawer from "@material-ui/core/Drawer"
-import Box from "@material-ui/core/Box"
 import AppBar from "@material-ui/core/AppBar"
 import Toolbar from "@material-ui/core/Toolbar"
 import List from "@material-ui/core/List"
@@ -12,8 +11,7 @@ import Divider from "@material-ui/core/Divider"
 import IconButton from "@material-ui/core/IconButton"
 import Badge from "@material-ui/core/Badge"
 import Container from "@material-ui/core/Container"
-import Grid from "@material-ui/core/Grid"
-import Paper from "@material-ui/core/Paper"
+import Box from "@material-ui/core/Box"
 import MuiLink from "@material-ui/core/Link"
 import { Link, navigate } from "gatsby"
 import MenuIcon from "@material-ui/icons/Menu"
@@ -23,13 +21,7 @@ import NotificationsIcon from "@material-ui/icons/Notifications"
 import { useSiteMetadata } from "hooks"
 import { useIdentityContext } from "react-netlify-identity"
 
-import {
-  Chart,
-  Deposits,
-  Orders,
-  mainListItems,
-  secondaryListItems,
-} from "components/Dashboard"
+import { mainListItems, secondaryListItems } from "components/Dashboard"
 import { Hidden, useTheme } from "@material-ui/core"
 import SEO from "components/Seo"
 import { Routes } from "utils"
@@ -103,7 +95,7 @@ const useStyles = makeStyles((theme) => ({
     height: "100vh",
     overflow: "auto",
     flexGrow: 1,
-    padding: theme.spacing(3),
+    // padding: theme.spacing(3),
   },
   container: {
     paddingTop: theme.spacing(4),
@@ -149,7 +141,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-export default function Dashboard() {
+export default function Dashboard({ children }) {
   const { logoutUser } = useIdentityContext()
   const {
     siteMetadata: { title: siteTitle },
@@ -161,8 +153,6 @@ export default function Dashboard() {
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen)
   }
-
-  const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight)
 
   const brand = (
     <Toolbar>
@@ -193,8 +183,8 @@ export default function Dashboard() {
       <div className={classes.toolbar}>{brand}</div>
       <Divider />
       <List>{mainListItems}</List>
-      <Divider />
-      <List>{secondaryListItems}</List>
+      {/* <Divider /> */}
+      {/* <List>{secondaryListItems}</List> */}
     </div>
   )
 
@@ -275,26 +265,7 @@ export default function Dashboard() {
       <main className={classes.content}>
         <div className={classes.toolbar} />
         <Container className={classes.container}>
-          <Grid container spacing={3}>
-            {/* Chart */}
-            <Grid item xs={12} md={8} lg={9}>
-              <Paper className={fixedHeightPaper}>
-                <Chart />
-              </Paper>
-            </Grid>
-            {/* Recent Deposits */}
-            <Grid item xs={12} md={4} lg={3}>
-              <Paper className={fixedHeightPaper}>
-                <Deposits />
-              </Paper>
-            </Grid>
-            {/* Recent Orders */}
-            <Grid item xs={12}>
-              <Paper className={classes.paper}>
-                <Orders />
-              </Paper>
-            </Grid>
-          </Grid>
+          {children}
           <Box pt={4}>
             <Copyright />
           </Box>
