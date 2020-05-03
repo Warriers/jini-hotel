@@ -1,5 +1,10 @@
-import React from "react";
+import React from "react"
+import {MainLayout as Layout} from "components"
 
-const NotFound = () => <h1>Sample 404 page</h1>;
+const NotFound = () => (
+  <Layout>
+    <h1>Sample 404 page</h1>
+  </Layout>
+)
 
-export default NotFound;
+export default NotFound

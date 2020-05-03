@@ -1,23 +1,24 @@
-import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import Grid from "@material-ui/core/Grid";
-import Link from "@material-ui/core/Link";
-import Container from "@material-ui/core/Container";
-import Typography from "./Typography";
-import TextField from "./TextField";
-import { useSiteMetadata } from "hooks";
+import React from "react"
+import { makeStyles } from "@material-ui/core/styles"
+import Grid from "@material-ui/core/Grid"
+import Link from "@material-ui/core/Link"
+import Container from "@material-ui/core/Container"
+import Typography from "./Typography"
+import TextField from "./TextField"
+import { useSiteMetadata } from "hooks"
 
-import { Theme } from "@material-ui/core/styles/createMuiTheme";
+import { Theme } from "@material-ui/core/styles/createMuiTheme"
 
 const Copyright = () => (
-  <>
-    {"© "}
+  <Typography variant="body2" color="textSecondary">
+    {"Copyright © "}
     <Link color="inherit" href="https://material-ui.com/">
       {useSiteMetadata().siteMetadata.title}
     </Link>{" "}
     {new Date().getFullYear()}
-  </>
-);
+    {"."}
+  </Typography>
+)
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
@@ -60,7 +61,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     marginTop: theme.spacing(1),
     width: 150,
   },
-}));
+}))
 
 const LANGUAGES = [
   {
@@ -71,10 +72,10 @@ const LANGUAGES = [
     code: "fr-FR",
     name: "Français",
   },
-];
+]
 
 const Footer = () => {
-  const classes = useStyles();
+  const classes = useStyles()
 
   return (
     <Typography component="footer" className={classes.root}>
@@ -170,7 +171,7 @@ const Footer = () => {
         </Grid>
       </Container>
     </Typography>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer

@@ -1,5 +1,5 @@
 import React from "react";
-import { Layout, SEO } from "components";
+import { MainLayout as Layout, SEO } from "components";
 import ProductCategories from "views/ProductCategories";
 import ProductSmokingHero from "views/ProductSmokingHero";
 import ProductHero from "views/ProductHero";

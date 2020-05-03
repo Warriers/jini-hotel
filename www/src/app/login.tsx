@@ -1,16 +1,20 @@
-import React from "react";
-import { Field, Form, FormSpy } from "react-final-form";
-import { makeStyles, Theme } from "@material-ui/core/styles";
-import { Link } from "gatsby-theme-material-ui";
-import Typography from "components/Typography";
-import AppForm from "views/AppForm";
-import { email, required } from "form/validation";
-import RFTextField from "form/RFTextField";
-import FormButton from "form/FormButton";
-import FormFeedback from "form/FormFeedback";
-import { Layout, SEO } from "components";
-import { useIdentityContext } from "../../plugins/gatsby-plugin-netlify-identity";
-import { navigate } from "gatsby";
+import React from "react"
+import { Field, Form, FormSpy } from "react-final-form"
+import { FORM_ERROR } from "final-form"
+import { makeStyles, Theme } from "@material-ui/core/styles"
+import { Link } from "gatsby-theme-material-ui"
+import Typography from "components/Typography"
+import AppForm from "views/AppForm"
+import { email, required } from "form/validation"
+import RFTextField from "form/RFTextField"
+import FormButton from "form/FormButton"
+import FormFeedback from "form/FormFeedback"
+import { Layout, SEO } from "components"
+import { useIdentityContext } from "plugins/gatsby-plugin-netlify-identity"
+import { navigate } from "gatsby"
+
+import { useLoading } from "hooks"
+import { MaybePathProps, FormData } from "./types"
 
 const useStyles = makeStyles((theme: Theme) => ({
   form: {
@@ -23,37 +27,47 @@ const useStyles = makeStyles((theme: Theme) => ({
   feedback: {
     marginTop: theme.spacing(2),
   },
-}));
+}))
 
-const Login = () => {
-  const classes = useStyles();
-  const { loginUser } = useIdentityContext();
-  const [sent, setSent] = React.useState(false);
+const Login = ({}: MaybePathProps) => {
+  const classes = useStyles()
+  const { loginUser } = useIdentityContext()
+  const [isLoading, load] = useLoading()
+  const [sent, setSent] = React.useState(false)
 
-  const validate = (values) => {
-    const errors = required(["email", "password"], values);
+  const validate = (values: FormData) => {
+    const errors = required(["email", "password"], values)
 
     if (!errors.email) {
-      const emailError = email(values.email, values);
+      const emailError = email(values.email, values)
       if (emailError) {
-        errors.email = email(values.email, values);
+        errors.email = email(values.email, values)
       }
     }
 
-    return errors;
-  };
+    return errors
+  }
 
-  const onSubmit = (values) => {
-    setSent(true);
-    loginUser(values.email, values.password)
-      .then((user) => console.log("Success! Signed up", user))
+  const onSubmit = async (values: FormData) => {
+    setSent(true)
+    let submitError = false
+    await load(loginUser(values.email, values.password))
+      .then((user) => {
+        console.log("Success! Logged in", user)
+        navigate("/dashboard")
+      })
       .catch((err) => {
-          setSent(false)
-      });
-  };
+        console.error(err)
+        submitError = true
+        setSent(false)
+      })
+    if (submitError) {
+      return { [FORM_ERROR]: "Invalid User Name or Password" }
+    }
+  }
 
   return (
-    <Layout>
+    <>
       <SEO title="Sign In" />
       <AppForm>
         <React.Fragment>
@@ -125,8 +139,8 @@ const Login = () => {
           </Link>
         </Typography>
       </AppForm>
-    </Layout>
-  );
-};
+    </>
+  )
+}
 
-export default Login;
+export default Login

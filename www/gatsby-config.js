@@ -25,7 +25,7 @@ module.exports = {
       options: { prefixes: [`/app/*`] }
     },
     {
-      resolve: `gatsby-plugin-netlify-identity`,
+      resolve: require.resolve(`./src/plugins/gatsby-plugin-netlify-identity`),
       options: {
         url: `https://jini-hotel.netlify.app` // required!
       }
