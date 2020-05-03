@@ -1,0 +1,184 @@
+{"intents": [
+        {"tag": "greeting",
+         "patterns": ["Hi there", "How are you", "Is anyone there?","Hey","Hola", "Hello", "Good day"],
+         "responses": ["Hello, thanks for asking", "Good to see you again", "Hi there, how can I help?"],
+         "context": [""]
+        },
+        {"tag": "goodbye",
+         "patterns": ["Bye", "See you later", "Goodbye", "Nice chatting to you, bye", "Till next time"],
+         "responses": ["See you!", "Have a nice day", "Bye! Come back again soon."],
+         "context": [""]
+        },
+        {"tag": "thanks",
+         "patterns": ["Thanks", "Thank you", "That's helpful", "Awesome, thanks", "Thanks for helping me"],
+         "responses": ["Happy to help!", "Any time!", "My pleasure"],
+         "context": [""]
+        },
+        {"tag": "noanswer",
+         "patterns": [],
+         "responses": ["Sorry, can't understand you", "Please give me more info", "Not sure I understand"],
+         "context": [""]
+        },
+        {"tag": "options",
+         "patterns": ["How you could help me?", "What you can do?", "What help you provide?", "How you can be helpful?", "What support is offered"],
+         "responses": ["I can help you to give the details about the recipes, Ingredients in recipes etc"],
+         "context": [""]
+        },
+        {"tag": "breakfast",
+         "patterns": ["What are the breakfast recipes details in the restaurant?", "Today's breakfast in restaurant?" ],
+         "responses": ["Rava upma,vada, coconut chutney and sambar ,masala Dosa ,Tea & coffe"],
+         "context": [""]
+        },
+        {"tag": "rava ingredient" ,
+         "patterns": ["What are the ingredients used in Rava upma?" ],
+         "responses": ["rava, mustard seeds, onion, green chillies, curry leaves, ginger,salt"],
+         "context": [""]
+        },
+        {"tag": "masala",
+         "patterns": ["What are the ingredients used in masala dosa?" ],
+         "responses": ["potato, onion, ginger, green chilli, turmeric powder, peper powder, cumin seeds, mustard seeds, urad dal, coconut oil, coriander leaves, salt"],
+         "context": [""]
+        },
+        {"tag": "vada",
+         "patterns": ["What are the ingredients used in vada?" ],
+         "responses": ["urad dal, cumin seed, ginger, green chilli, black peper, asafoetida, curry leaves, coconut, coriander oil, salt"],
+         "context": [""]
+        },
+        {"tag": "coconut chutney",
+         "patterns": ["What are the ingredients used in coconut chutney?" ],
+         "responses": ["coconut, curry leaves, black mustard seed, coriander leaves, garlic pods, green chilly, salt"],
+         "context": [""]
+        },
+        {"tag": "sambar",
+         "patterns": ["What are the ingredients used in sambar?" ],
+         "responses": ["Dal, tomatoes, jeera, mustard seed, curry leaves, red chilli, guard, carrot, onion,sambar masala, green chilli, asafoetida, ginger, garlic, salt"],
+         "context": [""]
+        },
+        {"tag": "pay",
+         "patterns": ["what is the price of Tea/Coffe?" ],
+         "responses": ["10 per one"],
+         "context": [""]
+        },
+        {"tag": "va",
+         "patterns": ["what is the price of coconut chutney?" ],
+         "responses": ["20 per one"],
+         "context": [""]
+        },
+        {"tag": "sa",
+         "patterns": ["what is the price of sambar?" ],
+         "responses": ["25 per one"],
+         "context": [""]
+        },
+        {"tag": "ra",
+         "patterns": ["what is the price of Rava upma?"],
+         "responses": ["20 per one"],
+         "context": [""]
+        },
+        {"tag": "ma",
+         "patterns": ["what is the price of masala dosa?" ],
+         "responses": ["30 per one"],
+         "context": [""]
+        },
+        {"tag": "lunch",
+         "patterns": ["What are the lunch recipes details in the restaurant?", "Today's lunch in restaurant?" ],
+         "responses": ["Chicken biryani, Onam Sadhya, mutton biryani"],
+         "context": [""]
+        },
+        {"tag": "chicken",
+         "patterns": ["What are the ingredients used in Chicken biryani?" ],
+         "responses": ["Basmati rice, Biriyani masala , Chicken ,Ghee, salt"],
+         "context": [""]
+        },
+        {"tag": "sadhya",
+         "patterns": ["What are the ingredients used in Onam Sadhya?" ],
+         "responses": ["Rice, Sambar, Parippu Curry, Rasam, Pulissery, Aviyal, Thoran – Cabbage,Upperi-Kaaya Varuthathu, SharkaraVaratti,Pazham, Payasam – Cherupayaru Payasam"],
+         "context": [""]
+        },
+        {"tag": "mutton",
+         "patterns": ["What are the ingredients used in mutton biryani" ],
+         "responses": ["Basmati rice, Biriyani masala , Mutton ,Ghee, salt"],
+         "context": [""]
+        },
+        {"tag": "chi",
+         "patterns": ["what is the price of Chicken biryani?" ],
+         "responses": ["180 per one"],
+         "context": [""]
+        },
+        {"tag": "onam",
+         "patterns": ["what is the price of Onam Sadhya?" ],
+         "responses": ["300 per one"],
+         "context": [""]
+        },
+        {"tag": "mu",
+         "patterns": ["what is the price of mutton biryani?" ],
+         "responses": ["240 per one"],
+         "context": [""]
+        },
+		{"tag": "Dinner",
+		 "patterns": ["What are the Dinner recipes details in the restaurant?", "Today's dinner in restaurant?"],
+		 "responses": ["appam, kerala parotta, Chapati, chicken curry, vegitable curry, egg curry "],
+		 "context": [""]
+		},
+		{"tag": "appam",
+		 "patterns": ["What are the ingredients used in appam?"],
+		 "responses": ["Warm water, Fine roasted rice flour, coconut milk,yeast,sugar,salt"],
+		 "context": [""]
+		},
+		{"tag": "parotta",
+		 "patterns": ["What are the ingredients used in kerala parotta?"],
+		 "responses": ["Milk, curd, sugar, flour, cooking oil, salt, Egg"],
+		 "context": [""]
+		},
+		{"tag": "chapati",
+		 "patterns": ["What are the ingredients used in Chapati?"],
+		 "responses": ["wholw wheat flour, all-purpose flour, salt, olive oil ,hot water"],
+		 "context": [""]
+		},
+		{"tag": "curry",
+		 "patterns": ["What are the ingredients used in chicken curry?"],
+		 "responses": ["chicken, curry powder, coconut milk, turmeric, ginger, tomatoes,coriander, garlic, chilli peper, onion, garam masala, salt"],
+		 "context": [""]
+		},
+		{"tag": "vegitable",
+		 "patterns": ["What are the ingredients used in vegitable curry?"],
+		 "responses": ["paneer, curry powder, natural yogurt, green pepper, oil, onion, ginger, garlic, tomato, sugar, double cream, butter, coriander, salt"],
+		 "context": [""]
+		},
+		{"tag": "egg",
+		 "patterns": ["What are the ingredients used in egg curry?"],
+		 "responses": ["boiled egg, tomato, onion,turmeric, coriander, garlic, ginger, salt, garam masala"],
+		 "context": [""]
+		},
+		{"tag": "ap",
+         "patterns": ["what is the price of appam?" ],
+         "responses": ["12 per one"],
+         "context": [""]
+		},
+		{"tag": "ke",
+         "patterns": ["what is the price of kerala parotta?" ],
+         "responses": ["10 per one"],
+         "context": [""]
+		},
+		{"tag": "ch",
+         "patterns": ["what is the price of Chapati?" ],
+         "responses": ["12 per one"],
+         "context": [""]
+		},
+		{"tag": "cc",
+         "patterns": ["what is the price of chicken curry?" ],
+         "responses": ["90 per one"],
+         "context": [""]
+		},
+		{"tag": "mu",
+         "patterns": ["what is the price of vegitable curry?" ],
+         "responses": ["80 per one"],
+         "context": [""]
+		},
+		{"tag": "mu",
+         "patterns": ["what is the price of egg curry?" ],
+         "responses": ["50 per one"],
+         "context": [""]
+		}
+        
+   ]
+}
