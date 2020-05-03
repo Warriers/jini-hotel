@@ -5,6 +5,8 @@ import Typography from "components/Typography";
 import ProductHeroLayout from "./ProductHeroLayout";
 
 import { Theme } from "@material-ui/core/styles/createMuiTheme";
+import { navigate } from "gatsby";
+import { Routes } from "utils";
 
 const backgroundImage =
   "https://images.unsplash.com/photo-1534854638093-bada1813ca19?auto=format&fit=crop&w=1400&q=80";
@@ -64,7 +66,10 @@ const ProductHero = (props: Props) => {
         variant="contained"
         size="large"
         className={classes.button}
-        to="/sign-up"
+        onClick={(e) => {
+          e.preventDefault()
+          navigate(`/app/${Routes.signup}/`)
+        }}
       >
         Register
       </Button>

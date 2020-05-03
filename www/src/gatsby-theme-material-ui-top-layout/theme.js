@@ -1,4 +1,4 @@
-import { createMuiTheme } from '@material-ui/core/styles';
+import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
 import { green, grey, red } from '@material-ui/core/colors';
 
 const rawTheme = createMuiTheme({
@@ -45,7 +45,7 @@ const fontHeader = {
   textTransform: 'uppercase',
 };
 
-const theme = {
+const theme = createMuiTheme({
   ...rawTheme,
   palette: {
     ...rawTheme.palette,
@@ -103,6 +103,6 @@ const theme = {
       fontSize: 14,
     },
   },
-};
+});
 
-export default theme;
+export default responsiveFontSizes(theme);

@@ -46,6 +46,7 @@
     "react-final-form": "^6.4.0",
     "react-helmet": "^6.0.0",
     "react-netlify-identity": "^0.2.5",
+    "recharts": "^1.8.5",
     "typescript": "^3.8.3",
     "validator": "^13.0.0"
   },

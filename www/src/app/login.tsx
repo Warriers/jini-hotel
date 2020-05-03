@@ -2,7 +2,7 @@ import React from "react"
 import { Field, Form, FormSpy } from "react-final-form"
 import { FORM_ERROR } from "final-form"
 import { makeStyles, Theme } from "@material-ui/core/styles"
-import { Link } from "gatsby-theme-material-ui"
+import Link from "@material-ui/core/Link"
 import Typography from "components/Typography"
 import AppForm from "views/AppForm"
 import { email, required } from "form/validation"
@@ -15,6 +15,8 @@ import { navigate } from "gatsby"
 
 import { useLoading } from "hooks"
 import { MaybePathProps, FormData } from "./types"
+
+import { Routes } from "utils"
 
 const useStyles = makeStyles((theme: Theme) => ({
   form: {
@@ -76,7 +78,15 @@ const Login = ({}: MaybePathProps) => {
           </Typography>
           <Typography variant="body2" align="center">
             {"Not a member yet? "}
-            <Link to="/sign-up" align="center" underline="always">
+            <Link
+              onClick={(e) => {
+                e.preventDefault()
+                navigate(`/app/${Routes.signup}`)
+              }}
+              href={`/app/${Routes.signup}`}
+              align="center"
+              underline="always"
+            >
               Sign Up here
             </Link>
           </Typography>
@@ -134,7 +144,7 @@ const Login = ({}: MaybePathProps) => {
           )}
         </Form>
         <Typography align="center">
-          <Link underline="always" to="/forgot-password">
+          <Link underline="always" href="/forgot-password">
             Forgot password?
           </Link>
         </Typography>

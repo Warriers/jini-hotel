@@ -1,7 +1,7 @@
 import React from "react"
 import { makeStyles, Theme } from "@material-ui/core/styles"
 import Grid from "@material-ui/core/Grid"
-import { Link } from "gatsby-theme-material-ui"
+import Link from "@material-ui/core/Link"
 import { Field, Form, FormSpy } from "react-final-form"
 import { FORM_ERROR } from "final-form"
 import Typography from "components/Typography"
@@ -17,6 +17,7 @@ import { navigate } from "gatsby"
 
 import { useLoading } from "hooks"
 import { MaybePathProps, FormData as FD } from "./types"
+import { Routes } from "utils"
 
 const useStyles = makeStyles((theme: Theme) => ({
   form: {
@@ -90,7 +91,10 @@ const Signup = ({}: MaybePathProps) => {
             Sign Up
           </Typography>
           <Typography variant="body2" align="center">
-            <Link to="/sign-in" underline="always">
+            <Link onClick={(e) => {
+              e.preventDefault()
+              navigate(`/app/${Routes.login}/`)
+            }} href={`/app/${Routes.login}/`} underline="always">
               Already have an account?
             </Link>
           </Typography>

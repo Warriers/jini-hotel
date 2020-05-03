@@ -1,11 +1,14 @@
-import React from "react";
-import clsx from "clsx";
-import { withStyles, createStyles } from "@material-ui/core/styles";
-import {Link} from "gatsby-theme-material-ui"
-import AppBar from "./AppBar";
-import Toolbar, { styles as toolbarStyles } from "./Toolbar";
+import React from "react"
+import clsx from "clsx"
+import { withStyles, createStyles } from "@material-ui/core/styles"
+import { Link } from "gatsby-theme-material-ui"
+import MuiLink from "@material-ui/core/Link"
+import AppBar from "./AppBar"
+import Toolbar, { styles as toolbarStyles } from "./Toolbar"
 
-import { Theme } from "@material-ui/core/styles/createMuiTheme";
+import { Theme } from "@material-ui/core/styles/createMuiTheme"
+import { Routes } from "utils"
+import { navigate } from "gatsby"
 
 const styles = (theme: Theme) =>
   createStyles({
@@ -35,21 +38,21 @@ const styles = (theme: Theme) =>
     linkSecondary: {
       color: theme.palette.secondary.main,
     },
-  });
+  })
 
 interface Props {
-  siteTitle: string;
+  siteTitle: string
   classes: {
-    [key: string]: any;
-  };
+    [key: string]: any
+  }
 }
 
 const defaultProps: Omit<Props, "classes"> = {
   siteTitle: "Jini Hotel",
-};
+}
 
 const Header = (props: Props) => {
-  const { siteTitle, classes } = props;
+  const { siteTitle, classes } = props
 
   return (
     <header>
@@ -66,31 +69,39 @@ const Header = (props: Props) => {
             {siteTitle}
           </Link>
           <div className={classes.right}>
-            <Link
+            <MuiLink
+              onClick={(e) => {
+                e.preventDefault()
+                navigate(`/app/${Routes.login}/`)
+              }}
               color="inherit"
               variant="h6"
               underline="none"
               className={classes.rightLink}
-              to="/sign-in"
+              href={`/app/${Routes.login}/`}
             >
               {"Sign In"}
-            </Link>
-            <Link
+            </MuiLink>
+            <MuiLink
+              onClick={(e) => {
+                e.preventDefault()
+                navigate(`/app/${Routes.signup}/`)
+              }}
               variant="h6"
               underline="none"
               className={clsx(classes.rightLink, classes.linkSecondary)}
-              to="/sign-up"
+              href={`/app/${Routes.signup}/`}
             >
               {"Sign Up"}
-            </Link>
+            </MuiLink>
           </div>
         </Toolbar>
       </AppBar>
       <div className={classes.placeholder} />
     </header>
-  );
-};
+  )
+}
 
-Header.defaultProps = defaultProps;
+Header.defaultProps = defaultProps
 
-export default withStyles(styles)(Header);
+export default withStyles(styles)(Header)

@@ -2,7 +2,7 @@ export interface MaybePathProps {
   path?: string
 }
 
-export interface RedirectProps {
+export interface RedirectProps extends MaybePathProps{
   from?: string
   to: string
   default?: boolean
