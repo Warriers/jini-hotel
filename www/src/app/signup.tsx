@@ -39,7 +39,9 @@ interface FormData extends FD {
 
 const Signup = ({}: MaybePathProps) => {
   const classes = useStyles()
-  const { signupUser } = useIdentityContext()
+  const { signupUser, user, settings } = useIdentityContext()
+  settings.autoconfirm = true
+  // console.log(settings)
   const [isLoading, load] = useLoading()
   const [sent, setSent] = React.useState(false)
 
@@ -64,13 +66,12 @@ const Signup = ({}: MaybePathProps) => {
     let submitError = false
     await load(
       signupUser(values.email, values.password, {
-        firstName: values.firstName,
-        lastName: values.lastName,
+        name: `${values.firstName} ${values.lastName}`,
       })
     )
       .then((user) => {
-        console.log("Success! Logged in", user)
-        navigate("/dashboard")
+        console.log("Success! Signed up")
+        navigate(`/app/${Routes.login}`)
       })
       .catch((err) => {
         console.error(err)
@@ -78,7 +79,7 @@ const Signup = ({}: MaybePathProps) => {
         setSent(false)
       })
     if (submitError) {
-      return { [FORM_ERROR]: "Invalid User Name or Password" }
+      return { [FORM_ERROR]: "An Unknown error occured." }
     }
   }
 
@@ -91,10 +92,14 @@ const Signup = ({}: MaybePathProps) => {
             Sign Up
           </Typography>
           <Typography variant="body2" align="center">
-            <Link onClick={(e) => {
-              e.preventDefault()
-              navigate(`/app/${Routes.login}/`)
-            }} href={`/app/${Routes.login}/`} underline="always">
+            <Link
+              onClick={(e) => {
+                e.preventDefault()
+                navigate(`/app/${Routes.login}/`)
+              }}
+              href={`/app/${Routes.login}/`}
+              underline="always"
+            >
               Already have an account?
             </Link>
           </Typography>

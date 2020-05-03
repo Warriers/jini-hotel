@@ -15,11 +15,14 @@ import Container from "@material-ui/core/Container"
 import Grid from "@material-ui/core/Grid"
 import Paper from "@material-ui/core/Paper"
 import MuiLink from "@material-ui/core/Link"
-import { Link } from "gatsby"
+import { Link, navigate } from "gatsby"
 import MenuIcon from "@material-ui/icons/Menu"
-import ChevronLeftIcon from "@material-ui/icons/ChevronLeft"
+// import ChevronLeftIcon from "@material-ui/icons/ChevronLeft"
+import ExitToAppIcon from "@material-ui/icons/ExitToApp"
 import NotificationsIcon from "@material-ui/icons/Notifications"
 import { useSiteMetadata } from "hooks"
+import { useIdentityContext } from "react-netlify-identity"
+
 import {
   Chart,
   Deposits,
@@ -28,6 +31,8 @@ import {
   secondaryListItems,
 } from "components/Dashboard"
 import { Hidden, useTheme } from "@material-ui/core"
+import SEO from "components/Seo"
+import { Routes } from "utils"
 
 function Copyright() {
   return (
@@ -145,6 +150,7 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 export default function Dashboard() {
+  const { logoutUser } = useIdentityContext()
   const {
     siteMetadata: { title: siteTitle },
   } = useSiteMetadata()
@@ -196,6 +202,7 @@ export default function Dashboard() {
 
   return (
     <div className={classes.root}>
+      <SEO title="Dashboard" />
       <CssBaseline />
       <AppBar position="fixed" className={classes.appBar}>
         <Toolbar>
@@ -221,6 +228,17 @@ export default function Dashboard() {
             <Badge badgeContent={4} color="secondary">
               <NotificationsIcon />
             </Badge>
+          </IconButton>
+          <IconButton
+            onClick={async () => {
+              await logoutUser()
+              navigate(`/app/${Routes.login}/`)
+            }}
+            edge="end"
+            aria-label="log out"
+            color="inherit"
+          >
+            <ExitToAppIcon />
           </IconButton>
         </Toolbar>
       </AppBar>

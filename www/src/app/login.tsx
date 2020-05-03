@@ -52,19 +52,22 @@ const Login = ({}: MaybePathProps) => {
 
   const onSubmit = async (values: FormData) => {
     setSent(true)
-    let submitError = false
+    let submitError = ""
     await load(loginUser(values.email, values.password))
       .then((user) => {
         console.log("Success! Logged in", user)
-        navigate("/dashboard")
+        navigate("/app/dashboard")
       })
       .catch((err) => {
-        console.error(err)
-        submitError = true
+        // console.log(err.json)
+        submitError = "Invalid User Name or Password"
+        if(err.json && err.json) {
+          submitError = err.json["error_description"] || submitError
+        }
         setSent(false)
       })
     if (submitError) {
-      return { [FORM_ERROR]: "Invalid User Name or Password" }
+      return { [FORM_ERROR]: submitError }
     }
   }
 
