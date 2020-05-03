@@ -34,7 +34,7 @@ function Copyright() {
     <Typography variant="body2" color="textSecondary" align="center">
       {"Copyright © "}
       <MuiLink component={Link} color="textPrimary" to="/">
-        useSiteMetadata().siteMetadata.title
+        {useSiteMetadata().siteMetadata.title}
       </MuiLink>{" "}
       {new Date().getFullYear()}
       {"."}

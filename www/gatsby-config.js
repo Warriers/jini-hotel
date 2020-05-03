@@ -30,6 +30,7 @@ module.exports = {
         url: `https://jini-hotel.netlify.app` // required!
       }
     },
+    `gatsby-plugin-netlify`,
     // `gatsby-plugin-netlify-identity`
     `gatsby-plugin-react-helmet`,
     {
