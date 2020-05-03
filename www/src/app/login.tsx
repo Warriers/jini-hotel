@@ -9,7 +9,7 @@ import { email, required } from "form/validation"
 import RFTextField from "form/RFTextField"
 import FormButton from "form/FormButton"
 import FormFeedback from "form/FormFeedback"
-import { Layout, SEO } from "components"
+import { SEO } from "components"
 import { useIdentityContext } from "plugins/gatsby-plugin-netlify-identity"
 import { navigate } from "gatsby"
 
