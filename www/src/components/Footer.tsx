@@ -5,14 +5,15 @@ import Link from "@material-ui/core/Link";
 import Container from "@material-ui/core/Container";
 import Typography from "./Typography";
 import TextField from "./TextField";
+import { useSiteMetadata } from "hooks";
 
-import {Theme} from "@material-ui/core/styles/createMuiTheme";
+import { Theme } from "@material-ui/core/styles/createMuiTheme";
 
 const Copyright = () => (
   <>
     {"© "}
     <Link color="inherit" href="https://material-ui.com/">
-      Your Website
+      {useSiteMetadata().siteMetadata.title}
     </Link>{" "}
     {new Date().getFullYear()}
   </>
@@ -88,16 +89,13 @@ const Footer = () => {
               spacing={2}
             >
               <Grid item className={classes.icons}>
-                <a href="https://material-ui.com/" className={classes.icon}>
+                <a href="#" className={classes.icon}>
                   <img
                     src={require("images/onepirate/appFooterFacebook.png")}
                     alt="Facebook"
                   />
                 </a>
-                <a
-                  href="https://twitter.com/MaterialUI"
-                  className={classes.icon}
-                >
+                <a href="#" className={classes.icon}>
                   <img
                     src={require("images/onepirate/appFooterTwitter.png")}
                     alt="Twitter"

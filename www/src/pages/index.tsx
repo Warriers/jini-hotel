@@ -12,11 +12,11 @@ const Index = () => {
     <Layout>
       <SEO title={`Home`} />
       <ProductHero />
-      <ProductValues />
+      {/* <ProductValues />
       <ProductCategories />
       <ProductHowItWorks />
       <ProductCTA />
-      <ProductSmokingHero />
+      <ProductSmokingHero /> */}
     </Layout>
   );
 };

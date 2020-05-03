@@ -9,6 +9,7 @@ import RFTextField from "form/RFTextField";
 import FormButton from "form/FormButton";
 import FormFeedback from "form/FormFeedback";
 import { Layout, SEO } from "components";
+import { useIdentityContext } from "../../plugins/gatsby-plugin-netlify-identity";
 import { navigate } from "gatsby";
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -24,8 +25,9 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
 }));
 
-const SignIn = () => {
+const Login = () => {
   const classes = useStyles();
+  const { loginUser } = useIdentityContext();
   const [sent, setSent] = React.useState(false);
 
   const validate = (values) => {
@@ -42,8 +44,12 @@ const SignIn = () => {
   };
 
   const onSubmit = (values) => {
-    console.log(values)
     setSent(true);
+    loginUser(values.email, values.password)
+      .then((user) => console.log("Success! Signed up", user))
+      .catch((err) => {
+          setSent(false)
+      });
   };
 
   return (
@@ -123,4 +129,4 @@ const SignIn = () => {
   );
 };
 
-export default SignIn;
+export default Login;

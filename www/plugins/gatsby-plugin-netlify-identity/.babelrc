@@ -1,0 +1,12 @@
+{
+  "presets": [
+    [
+      "babel-preset-gatsby-package",
+      {
+        // remember, we're utilizing the `gatsby-browser` function `wrapRootElement`
+        // this property ensures our compiled code will be browser-friendly
+        "browser": true
+      }
+    ]
+  ]
+}
