@@ -1,15 +1,15 @@
-import React from "react";
-import { withStyles, createStyles } from "@material-ui/core/styles";
-import Button from "components/Button";
-import Typography from "components/Typography";
-import ProductHeroLayout from "./ProductHeroLayout";
+import React from "react"
+import { withStyles, createStyles } from "@material-ui/core/styles"
+import Button from "components/Button"
+import Typography from "components/Typography"
+import ProductHeroLayout from "./ProductHeroLayout"
+import { Theme } from "@material-ui/core/styles/createMuiTheme"
+import { navigate } from "gatsby"
+import { Routes } from "utils"
+import { useIdentityContext } from "react-netlify-identity"
+// import { useHeroImage } from "hooks"
 
-import { Theme } from "@material-ui/core/styles/createMuiTheme";
-import { navigate } from "gatsby";
-import { Routes } from "utils";
-
-const backgroundImage =
-  "https://images.unsplash.com/photo-1534854638093-bada1813ca19?auto=format&fit=crop&w=1400&q=80";
+const backgroundImage = require("images/rest.jpg")
 
 const styles = (theme: Theme) =>
   createStyles({
@@ -31,17 +31,18 @@ const styles = (theme: Theme) =>
     more: {
       marginTop: theme.spacing(2),
     },
-  });
+  })
 
 interface Props {
   classes: {
-    [key: string]: any;
-  };
+    [key: string]: any
+  }
 }
 
 const ProductHero = (props: Props) => {
-  const { classes } = props;
-
+  const { classes } = props
+  const { isLoggedIn } = useIdentityContext()
+  // const data = useHeroImage();
   return (
     <ProductHeroLayout backgroundClassName={classes.background}>
       {/* Increase the network loading priority of the background image. */}
@@ -50,8 +51,9 @@ const ProductHero = (props: Props) => {
         src={backgroundImage}
         alt="increase priority"
       />
+      {/* <Img fixed={data.file.childImageSharp.fixed} /> */}
       <Typography color="inherit" align="center" variant="h2" marked="center">
-        Upgrade your Sundays
+        Upgrade your Weekends
       </Typography>
       <Typography
         color="inherit"
@@ -68,16 +70,16 @@ const ProductHero = (props: Props) => {
         className={classes.button}
         onClick={(e) => {
           e.preventDefault()
-          navigate(`/app/${Routes.signup}/`)
+          navigate(`/app/${isLoggedIn ? Routes.dashboard : Routes.signup}/`)
         }}
       >
-        Register
+        {`${isLoggedIn ? "Dashboard" : "Register"}`}
       </Button>
       <Typography variant="body2" color="inherit" className={classes.more}>
         Discover the experience
       </Typography>
     </ProductHeroLayout>
-  );
+  )
 }
 
-export default withStyles(styles)(ProductHero);
+export default withStyles(styles)(ProductHero)

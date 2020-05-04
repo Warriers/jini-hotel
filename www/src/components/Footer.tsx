@@ -1,7 +1,8 @@
 import React from "react"
 import { makeStyles } from "@material-ui/core/styles"
 import Grid from "@material-ui/core/Grid"
-import Link from "@material-ui/core/Link"
+import MuiLink from "@material-ui/core/Link"
+import {Link} from "gatsby"
 import Container from "@material-ui/core/Container"
 import Typography from "./Typography"
 import TextField from "./TextField"
@@ -12,7 +13,7 @@ import { Theme } from "@material-ui/core/styles/createMuiTheme"
 const Copyright = () => (
   <Typography variant="body2" color="textSecondary">
     {"Copyright © "}
-    <Link color="inherit" href="https://material-ui.com/">
+    <Link component={Link} color="inherit" to="/">
       {useSiteMetadata().siteMetadata.title}
     </Link>{" "}
     {new Date().getFullYear()}
@@ -109,7 +110,7 @@ const Footer = () => {
             </Grid>
           </Grid>
           <Grid item>
-            <Typography variant="caption">
+            {/* <Typography variant="caption">
               {"Icons made by "}
               <Link
                 href="https://www.freepik.com"
@@ -135,7 +136,7 @@ const Footer = () => {
               >
                 CC 3.0 BY
               </Link>
-            </Typography>
+            </Typography> */}
           </Grid>
         </Grid>
       </Container>

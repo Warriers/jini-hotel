@@ -9,6 +9,7 @@ import Toolbar, { styles as toolbarStyles } from "./Toolbar"
 import { Theme } from "@material-ui/core/styles/createMuiTheme"
 import { Routes } from "utils"
 import { navigate } from "gatsby"
+import { useIdentityContext } from "react-netlify-identity"
 
 const styles = (theme: Theme) =>
   createStyles({
@@ -53,7 +54,7 @@ const defaultProps: Omit<Props, "classes"> = {
 
 const Header = (props: Props) => {
   const { siteTitle, classes } = props
-
+  const { isLoggedIn } = useIdentityContext()
   return (
     <header>
       <AppBar position="fixed">
@@ -69,31 +70,36 @@ const Header = (props: Props) => {
             {siteTitle}
           </Link>
           <div className={classes.right}>
-            <MuiLink
-              onClick={(e) => {
-                e.preventDefault()
-                navigate(`/app/${Routes.login}/`)
-              }}
-              color="inherit"
-              variant="h6"
-              underline="none"
-              className={classes.rightLink}
-              href={`/app/${Routes.login}/`}
-            >
-              {"Sign In"}
-            </MuiLink>
-            <MuiLink
-              onClick={(e) => {
-                e.preventDefault()
-                navigate(`/app/${Routes.signup}/`)
-              }}
-              variant="h6"
-              underline="none"
-              className={clsx(classes.rightLink, classes.linkSecondary)}
-              href={`/app/${Routes.signup}/`}
-            >
-              {"Sign Up"}
-            </MuiLink>
+            {!isLoggedIn && (
+              <>
+                {" "}
+                <MuiLink
+                  onClick={(e) => {
+                    e.preventDefault()
+                    navigate(`/app/${Routes.login}/`)
+                  }}
+                  color="inherit"
+                  variant="h6"
+                  underline="none"
+                  className={classes.rightLink}
+                  href={`/app/${Routes.login}/`}
+                >
+                  {"Sign In"}
+                </MuiLink>
+                <MuiLink
+                  onClick={(e) => {
+                    e.preventDefault()
+                    navigate(`/app/${Routes.signup}/`)
+                  }}
+                  variant="h6"
+                  underline="none"
+                  className={clsx(classes.rightLink, classes.linkSecondary)}
+                  href={`/app/${Routes.signup}/`}
+                >
+                  {"Sign Up"}
+                </MuiLink>
+              </>
+            )}
           </div>
         </Toolbar>
       </AppBar>
