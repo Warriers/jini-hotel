@@ -52,8 +52,6 @@ foo@bar:~$ python custom_qr.py
 
 Results,
 
-![No QR Code. Webcam window](https://raw.githubusercontent.com/meticulousCraftman/QR-Code/master/images/img1.png)
-
 ![QR Code Scanning](https://raw.githubusercontent.com/meticulousCraftman/QR-Code/master/images/img2.png)
 
 ## Reference
