@@ -11,7 +11,7 @@ import RoomIcon from '@material-ui/icons/Room';
 import AssignmentIcon from "@material-ui/icons/Assignment"
 
 import { Routes } from "utils"
-import { navigate } from "gatsby"
+import { navigate, Link } from "gatsby"
 
 function ListItemLink(props) {
   const { to = "dashboard" } = props
@@ -47,13 +47,13 @@ export const mainListItems = (
       </ListItemIcon>
       <ListItemText primary="Profile" />
     </ListItemLink>
-    <ListItemLink button>
+    {/* <ListItemLink button>
       <ListItemIcon>
         <ChatIcon />
       </ListItemIcon>
       <ListItemText primary="Chat" />
-    </ListItemLink>
-    <ListItemLink button>
+    </ListItemLink> */}
+    <ListItemLink to={Routes.map}>
       <ListItemIcon>
         <RoomIcon />
       </ListItemIcon>

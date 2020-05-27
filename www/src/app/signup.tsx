@@ -67,11 +67,11 @@ const Signup = ({layout: Layout}: MaybePathProps) => {
     await load(
       signupUser(values.email, values.password, {
         name: `${values.firstName} ${values.lastName}`,
-      })
+      }, false)
     )
       .then((user) => {
         console.log("Success! Signed up")
-        navigate(`/app/${Routes.login}`)
+        navigate(`/app/${Routes.login}/`)
       })
       .catch((err) => {
         console.error(err)

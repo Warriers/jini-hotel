@@ -62,58 +62,59 @@ def chatbot_response(msg):
     res = getResponse(ints, intents)
     return res
 
+print(chatbot_response("price"))
 
 #Creating GUI with tkinter
-import tkinter
-from tkinter import *
+# import tkinter
+# from tkinter import *
 
 
-def send():
-    msg = EntryBox.get("1.0",'end-1c').strip()
-    EntryBox.delete("0.0",END)
+# def send():
+#     msg = EntryBox.get("1.0",'end-1c').strip()
+#     EntryBox.delete("0.0",END)
 
-    if msg != '':
+#     if msg != '':
         
-        ChatLog.config(state=NORMAL)
-        ChatLog.insert(INSERT, "You: " + msg + '\n\n')
-        ChatLog.config(foreground="GREEN", font=("Verdana", 12 ,'bold'))
+#         ChatLog.config(state=NORMAL)
+#         ChatLog.insert(INSERT, "You: " + msg + '\n\n')
+#         ChatLog.config(foreground="GREEN", font=("Verdana", 12 ,'bold'))
         
-        res = chatbot_response(msg)
-        ChatLog.insert(END, "Bot: " + res + '\n\n')
-        ChatLog.config(foreground="RED", font=("Verdana", 12 ))
+#         res = chatbot_response(msg)
+#         ChatLog.insert(END, "Bot: " + res + '\n\n')
+#         ChatLog.config(foreground="RED", font=("Verdana", 12 ))
 
-        ChatLog.config(state=DISABLED)
-        ChatLog.yview(END)
-
-
-base = Tk()
-base.title("RESTAURANT BOT")
-base.geometry("400x500")
-base.resizable(width=FALSE, height=FALSE)
-
-#Create Chat window
-ChatLog = Text(base, bd=0, bg="white", height="8", width="50", font="Arial",)
-
-ChatLog.config(state=DISABLED)
-
-#Bind scrollbar to Chat window
-scrollbar = Scrollbar(base, command=ChatLog.yview, cursor="mouse")
-ChatLog['yscrollcommand'] = scrollbar.set
-
-#Create Button to send message
-SendButton = Button(base, font=("Verdana",12,'bold'), text="Send", width="12", height=5,
-                    bd=0, bg="#F5F5F5", activebackground="#3c9d9b",fg='#9cdd5f',
-                    command= send )
-
-#Create the box to enter message
-EntryBox = Text(base, bd=0, bg="#F5F5F5",width="29", height="5", font="Arial")
-#EntryBox.bind("<Return>", send)
+#         ChatLog.config(state=DISABLED)
+#         ChatLog.yview(END)
 
 
-#Place all components on the screen
-scrollbar.place(x=376,y=6, height=386)
-ChatLog.place(x=6,y=6, height=386, width=370)
-EntryBox.place(x=128, y=401, height=90, width=265)
-SendButton.place(x=6, y=401, height=90)
+# base = Tk()
+# base.title("RESTAURANT BOT")
+# base.geometry("400x500")
+# base.resizable(width=FALSE, height=FALSE)
 
-base.mainloop()
+# #Create Chat window
+# ChatLog = Text(base, bd=0, bg="white", height="8", width="50", font="Arial",)
+
+# ChatLog.config(state=DISABLED)
+
+# #Bind scrollbar to Chat window
+# scrollbar = Scrollbar(base, command=ChatLog.yview, cursor="mouse")
+# ChatLog['yscrollcommand'] = scrollbar.set
+
+# #Create Button to send message
+# SendButton = Button(base, font=("Verdana",12,'bold'), text="Send", width="12", height=5,
+#                     bd=0, bg="#F5F5F5", activebackground="#3c9d9b",fg='#9cdd5f',
+#                     command= send )
+
+# #Create the box to enter message
+# EntryBox = Text(base, bd=0, bg="#F5F5F5",width="29", height="5", font="Arial")
+# #EntryBox.bind("<Return>", send)
+
+
+# #Place all components on the screen
+# scrollbar.place(x=376,y=6, height=386)
+# ChatLog.place(x=6,y=6, height=386, width=370)
+# EntryBox.place(x=128, y=401, height=90, width=265)
+# SendButton.place(x=6, y=401, height=90)
+
+# base.mainloop()

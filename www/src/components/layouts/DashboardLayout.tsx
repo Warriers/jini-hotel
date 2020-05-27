@@ -26,6 +26,8 @@ import { Hidden, useTheme } from "@material-ui/core"
 import SEO from "components/Seo"
 import { Routes } from "utils"
 
+// import ChatBot from "components/ChatBot"
+
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
@@ -266,6 +268,7 @@ export default function Dashboard({ children }) {
         <div className={classes.toolbar} />
         <Container className={classes.container}>
           {children}
+          {/* <ChatBot /> */}
           <Box pt={4}>
             <Copyright />
           </Box>
